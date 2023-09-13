@@ -7,13 +7,17 @@
 </head>
 <body>
 <header>
-    <h1>TAKE THIS ADVICE</h1>
+    <h1>RECEBA UM CONSELHO!</h1>
 </header>
 <section>
-    <h3 id="receba">MENSAGEM</h3>
-    <button onclick="search()">RECEBER</button>
-</section>
+    <h3 id="receba">CLIQUE NO BOTÃO ABAIXO PARA RECEBER</h3>
+    <button id="playButton" onclick="search()">RECEBER</button>
 
+    <audio style="display: none;" id="audioPlayer" controls>
+        <source src="receba-siiiii.mp3" type="audio/mpeg">
+        Seu navegador não suporta a reprodução de áudio.
+    </audio>   
+</section>
 <script src="index.js"></script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 const advice = document.getElementById('receba')
+const audioPlayer = document.getElementById("audioPlayer");
+const playButton = document.getElementById("playButton");
 
 const search = async () => {
     try {
@@ -26,26 +28,10 @@ const search = async () => {
     }
 }
 
-// Obtenha referências para o elemento de áudio e o botão
-const audioPlayer = document.getElementById("audioPlayer");
-const playButton = document.getElementById("playButton");
-
-// Adicione um evento de clique ao botão
 playButton.addEventListener("click", function () {
   if (audioPlayer.paused) {
-    // Se o áudio estiver pausado, inicie a reprodução
     audioPlayer.play();
-    playButton.textContent = "Pause";
-  } else {
-    // Se o áudio estiver reproduzindo, pause a reprodução
-    audioPlayer.pause();
-    playButton.textContent = "Play";
   }
-});
-
-// Adicione um evento de término de reprodução para redefinir o botão para "Play"
-audioPlayer.addEventListener("ended", function () {
-  playButton.textContent = "Play";
 });
 
 

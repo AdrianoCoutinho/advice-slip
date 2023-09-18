@@ -1,6 +1,28 @@
-const advice = document.getElementById('receba')
-const audioPlayer = document.getElementById("audioPlayer");
-const playButton = document.getElementById("playButton");
+const header = document.querySelector('header');
+const title = document.createElement("h1");
+title.innerText = "RECEBA UM CONSELHO!";
+header.appendChild(title);
+
+const section = document.createElement("section")
+document.body.append(section);
+
+const subtitle = document.createElement("h3")
+subtitle.innerHTML= "CLIQUE NO BOTÃO ABAIXO PARA RECEBER!";
+section.appendChild(subtitle);
+
+const audio = document.createElement("audio");
+audio.setAttribute("id", 'audioPlayer')
+audio.setAttribute("style", 'display: none;')
+section.appendChild(audio);
+
+const source = document.createElement("source");
+source.setAttribute("src", 'receba-siiiii.mp3')
+source.setAttribute("type", 'audio/mpeg')
+audio.appendChild(source);
+
+const button = document.createElement("button");
+button.innerHTML= "RECEBER!";
+section.appendChild(button);
 
 const search = async () => {
     try {
@@ -20,21 +42,22 @@ const search = async () => {
             },
           };
           const response = await axios.request(options);
-          advice.innerHTML = response.data.ibm.text;
+          subtitle.innerHTML = response.data.ibm.text;
           console.log(response.data.ibm.text);
         return result
+        
     } catch (error) {
         console.log(error)
     }
 }
 
-playButton.addEventListener("click", function () {
+
+button.addEventListener("click", function () {
   if (audioPlayer.paused) {
+    search();
     audioPlayer.play();
   }
 });
-
-
 
 
 
